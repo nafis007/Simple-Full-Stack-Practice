@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                background: rgba(247, 235, 235, 0.932);
+            }
+        
+            .content {
+                max-width: 500px;
+                margin: auto;
+                background: white;
+                padding: 10px;
+            }
+
+            .myContent {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- '/' from app route in app.py end point we are looking for name and post from server -->
+        
+        <div class='myContent'>
+            <form action='/home' method='post'>
+                <input placeholder="Name" name='name'>
+                <input placeholder="Type Content" name='post'>
+                <input type='submit' value='Submit'>
+            </form>
+        </div>
+
+        <!-- specifict syntax for python, flask, html writing -->
+        
+        <div class='myContent'>
+            <h2>All Posts So far</h2>
+            {% for post in posts %}
+                {{post[1] + ': ' + post[2]}}
+                </br>
+            {% endfor %}
+        </div>    
+    </body>
+</html>
